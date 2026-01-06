@@ -1,3 +1,5 @@
+import java.util.Arrays;
+
 /**
  * ============================================================
  * QUESTION: Seat Reservation
@@ -26,9 +28,22 @@ public class File1_Q6_SeatReservation {
     // TODO: Implement the SeatManager class
     static class SeatManager {
         // YOUR DATA STRUCTURE HERE (boolean 2D array recommended)
-        
+    boolean arr[][];
+        int rows;
+        int cols;
         public SeatManager(int rows, int cols) {
             // Initialize the seat grid
+
+            //if available true if not false
+            this.cols = cols;
+            this.rows = rows;
+            arr = new boolean[rows][cols];
+            
+                        for(int i = 0; i < rows; i++) {
+                for(int j = 0; j < cols; j++) {
+                    arr[i][j] = true;
+                }
+            }
         }
         
         /**
@@ -39,6 +54,9 @@ public class File1_Q6_SeatReservation {
          */
         public boolean isAvailable(int row, int col) {
             // YOUR CODE HERE
+       if(arr[row][col]){
+        return true;
+       }
             return false;
         }
         
@@ -49,7 +67,10 @@ public class File1_Q6_SeatReservation {
          * @return - true if reservation successful
          */
         public boolean reserve(int row, int col) {
-            // YOUR CODE HERE
+        if(arr[row][col]){
+            arr[row][col] = false;
+            return true;
+        }
             return false;
         }
         
@@ -61,6 +82,10 @@ public class File1_Q6_SeatReservation {
          */
         public boolean cancel(int row, int col) {
             // YOUR CODE HERE
+            if(!arr[row][col]){
+              arr[row][col] = true;
+              return true;
+            }
             return false;
         }
         
@@ -69,6 +94,19 @@ public class File1_Q6_SeatReservation {
          */
         public void display() {
             // YOUR CODE HERE - Print O for available, X for reserved
+            for(int i = 0; i < arr.length;i++){
+                for(int j = 0; j < arr[i].length;j++){
+                    if(arr[i][j]){
+                        System.out.print("O"+" ");
+                    }
+                    else{
+                        System.out.print("X"+ " ");
+                    }
+
+                    
+                }
+                System.out.println();
+            }
         }
     }
     

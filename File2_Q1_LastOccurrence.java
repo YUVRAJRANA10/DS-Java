@@ -39,8 +39,13 @@ public class File2_Q1_LastOccurrence {
      */
     public static int findLastOccurrence(int[] arr, int target) {
         // YOUR CODE HERE
-        
-        return -1;
+        int index = -1;
+           for(int i = 0; i < arr.length; i++){
+            if(arr[i] == target){
+                index = i;
+            }
+           }
+        return index;
     }
     
     /**
@@ -53,8 +58,11 @@ public class File2_Q1_LastOccurrence {
      */
     public static int sumOfLastOccurrenceIndices(int[] arr, int[] targets) {
         // YOUR CODE HERE
-        
-        return 0;
+        int sum = 0;
+        for (int i = 0; i < targets.length; i++) {
+            sum+= targets[i];
+        }
+        return sum;
     }
     
     // ==================== TEST CASES ====================

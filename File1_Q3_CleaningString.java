@@ -32,8 +32,18 @@ public class File1_Q3_CleaningString {
      */
     public static String removeLeadingZeros(String s) {
         // YOUR CODE HERE
-        
-        return s;
+        String result = " ";
+        for(char c: s.toCharArray()){
+            if(c == '0'){
+                continue;
+            }
+            else{
+            result+=c;}
+        }
+        if(result == " "){
+            result+='0';
+        }
+        return result.trim();
     }
     
     // ==================== TEST CASES ====================

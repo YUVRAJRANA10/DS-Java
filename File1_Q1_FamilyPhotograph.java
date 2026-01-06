@@ -37,7 +37,22 @@ public class File1_Q1_FamilyPhotograph {
      */
     public static int[] reverseInBlocks(int[] heights, int k) {
         // YOUR CODE HERE
-        
+         int arr[] = new int[heights.length];
+         for(int l = 0; l< arr.length; l++){
+            arr[l] = heights[l];
+         }
+          
+          for (int i = 0; i < heights.length; i++) {
+            if((i+1) % k == 0){
+                int copyi = i;
+                for(int j = i+1 - k; j <= i; j++ ){
+                 heights[j] = arr[copyi];
+                 copyi--;
+                }
+            }
+          }
+
+                 
         return heights;
     }
     

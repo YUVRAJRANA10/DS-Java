@@ -37,8 +37,12 @@ public class File2_Q4_TotalSearchTime {
      */
     public static int totalDistance(int[] positions) {
         // YOUR CODE HERE
-        
-        return 0;
+        int totalDistance = 0;
+        for (int i = 0; i < positions.length-1; i++) {
+            totalDistance += Math.abs(positions[i] - positions[i+1]);
+            
+        }
+        return totalDistance;
     }
     
     // ==================== TEST CASES ====================

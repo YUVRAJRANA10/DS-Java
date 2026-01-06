@@ -19,6 +19,8 @@
  * 1. Find the Single Number
  * 2. Two Sum
  * 3. Top K Frequent IDs
+ * 
+ *
  * ============================================================
  */
 
@@ -35,8 +37,19 @@ public class File1_Q2_AirlineBaggageTracking {
      */
     public static int countUnique(int[] ids) {
         // YOUR CODE HERE
-        
-        return 0;
+        int hash[] = new int[1000];
+     
+        for(int  i: ids){
+            hash[i]++;
+        }
+      int count = 0;
+      for (int i = 0; i < hash.length; i++) {
+        if(hash[i] > 0){
+            count++;
+        }
+      }
+
+        return count;
     }
     
     /**

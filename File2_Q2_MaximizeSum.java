@@ -37,8 +37,17 @@ public class File2_Q2_MaximizeSum {
      */
     public static int maximizeFirstLastSum(int[] arr) {
         // YOUR CODE HERE
-        
-        return 0;
+        int max = 0;
+        for (int i = 1; i < arr.length-1; i++) {
+            if(arr[max] < arr[i]){
+                max = i;
+            }
+        }
+
+        int temp = arr[0] ;
+        arr[0] = arr[max];
+        arr[max] = temp;
+        return arr[0] + arr[arr.length - 1];
     }
     
     // ==================== TEST CASES ====================

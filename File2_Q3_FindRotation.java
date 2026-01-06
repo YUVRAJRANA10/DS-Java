@@ -36,8 +36,13 @@ public class File2_Q3_FindRotation {
      */
     public static int findRotationCount(int[] arr) {
         // YOUR CODE HERE
-        
-        return 0;
+          int min = 0;
+          for (int i = 0; i < arr.length; i++) {
+            if(arr[i] < arr[min]){
+                min = i;
+            }
+          }
+        return min;
     }
     
     // ==================== TEST CASES ====================

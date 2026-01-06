@@ -28,9 +28,14 @@ public class File1_Q4_TrayStack {
     // TODO: Implement the TrayStack class
     static class TrayStack {
         // YOUR DATA STRUCTURE HERE
-        
+        int top;
+        int stackArray[];
+        int size = 100;
         public TrayStack() {
             // Initialize your stack
+             top = -1;
+           stackArray= new int[size];
+
         }
         
         /**
@@ -39,6 +44,10 @@ public class File1_Q4_TrayStack {
          */
         public void receive(int trayId) {
             // YOUR CODE HERE
+            if(top == size - 1){
+                return;
+            }
+            stackArray[++top] = trayId;
         }
         
         /**
@@ -47,7 +56,13 @@ public class File1_Q4_TrayStack {
          */
         public int serve() {
             // YOUR CODE HERE
-            return -1;
+
+            if(isEmpty()){
+                return -1;
+            }
+
+            
+            return stackArray[top--];
         }
         
         /**
@@ -56,7 +71,10 @@ public class File1_Q4_TrayStack {
          */
         public boolean isEmpty() {
             // YOUR CODE HERE
+            if(top == -1){
             return true;
+            }
+            return false;
         }
         
         /**
@@ -65,7 +83,11 @@ public class File1_Q4_TrayStack {
          */
         public int peek() {
             // YOUR CODE HERE
+            if(isEmpty()){
             return -1;
+            }
+
+            return stackArray[top];
         }
     }
     
