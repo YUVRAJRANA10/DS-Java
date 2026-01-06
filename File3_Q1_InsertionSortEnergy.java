@@ -11,8 +11,8 @@
  * CLASSIFICATION: Sorting Simulation
  * 
  * TEST CASES:
- * Case 1: {2,4,1,3,5} → 20
- * Case 2: {10,9,8...1} → 216
+ * Case 1: {2,4,1,3,5} → 12
+ * Case 2: {10,9,8...1} → 180
  * 
  * ALGORITHM:
  * Count shifts in Insertion Sort and multiply by 4.
@@ -37,8 +37,19 @@ public class File3_Q1_InsertionSortEnergy {
      */
     public static int calculateEnergy(int[] arr) {
         // YOUR CODE HERE
-        
-        return 0;
+        int swaps = 0;
+        for (int i = 0; i < arr.length; i++) {
+            int key = arr[i];
+            int j = i-1;
+            while (j >=0 && arr[j] > key ) {
+                arr[j+1 ]  = arr[j];
+                j--;
+                swaps++;
+            }
+
+            arr[j + 1] = key;
+        }
+        return swaps * 4;
     }
     
     /**
@@ -60,7 +71,7 @@ public class File3_Q1_InsertionSortEnergy {
         
         // Test Case 1
         int[] test1 = {2, 4, 1, 3, 5};
-        int expected1 = 20; // 5 shifts * 4 = 20
+        int expected1 = 12; // 3 shifts * 4 = 12
         int result1 = calculateEnergy(test1.clone());
         System.out.println("Test 1: " + Arrays.toString(test1));
         System.out.println("Energy: " + result1);

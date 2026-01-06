@@ -1,3 +1,5 @@
+import java.util.LinkedList;
+
 /**
  * ============================================================
  * QUESTION: Reverse Linked List
@@ -45,7 +47,19 @@ public class File2_Q9_ReverseLinkedList {
      */
     public static ListNode reverseIterative(ListNode head) {
         // YOUR CODE HERE
-        
+        ListNode prev = null;
+        ListNode curr = head;
+        ListNode nextt = null;
+
+        while (curr != null) {
+            nextt = curr.next;
+            curr.next = prev;
+            prev = curr;
+            curr = nextt;
+            
+        }
+
+        head = prev;
         return head;
     }
     

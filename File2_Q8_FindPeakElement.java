@@ -35,22 +35,55 @@ public class File2_Q8_FindPeakElement {
      * @return - value of peak element
      */
     public static int findPeak(int[] arr) {
-        // YOUR CODE HERE
+        // O(n) Linear Solution - Fixed with edge cases
+        int n = arr.length;
+        if (n == 1) return arr[0];
         
+        // Check first element
+        if (arr[0] > arr[1]) return arr[0];
+        
+        // Check last element
+        if (arr[n-1] > arr[n-2]) return arr[n-1];
+        
+        // Check middle elements
+        for (int i = 1; i < n - 1; i++) {
+            if (arr[i] > arr[i-1] && arr[i] > arr[i+1]) {
+                return arr[i];
+            }
+        }
         return -1;
     }
     
     /**
-     * TODO: Implement this method
-     * Find index of a peak element
+     * O(log n) Binary Search Solution
+     * Key insight: Move towards the higher neighbor
      * 
      * @param arr - input array
      * @return - index of peak element
      */
     public static int findPeakIndex(int[] arr) {
-        // YOUR CODE HERE
+        int left = 0, right = arr.length - 1;
         
-        return -1;
+        while (left < right) {
+            int mid = left + (right - left) / 2;
+            
+            if (arr[mid] < arr[mid + 1]) {
+                // Peak is on the right side
+                left = mid + 1;
+            } else {
+                // Peak is on the left side (or at mid)
+                right = mid;
+            }
+        }
+        // left == right, pointing to a peak
+        return left;
+    }
+    
+    /**
+     * O(log n) Binary Search - Returns VALUE instead of index
+     */
+    public static int findPeakBinarySearch(int[] arr) {
+        return arr[findPeakIndex(arr)];
     }
     
     // ==================== TEST CASES ====================

@@ -36,8 +36,20 @@ public class File2_Q5_AuditFunction {
      */
     public static int findWinner(int[] votes) {
         // YOUR CODE HERE
-        
-        return -1;
+       
+        int hash[] = new int[99];
+      for (int i = 0; i < votes.length; i++) {
+        hash[votes[i]]++;
+      }
+
+      int max= 0;
+      for (int i = 0; i < hash.length; i++) {
+        if(hash[i] > hash[max]){
+            max = i;
+        }
+      }
+
+        return max;
     }
     
     // ==================== TEST CASES ====================
