@@ -37,7 +37,21 @@ public class File3_Q2_DecreasingSearch {
      */
     public static int searchDecreasing(int[] arr, int target) {
         // YOUR CODE HERE
-        
+        int left = 0, right =  arr.length - 1;
+        // int mid =  left + (right - left)/2;
+        while (left <=  right) {
+            int mid =  left + (right - left)/2;
+            if(arr[mid] == target){
+                return mid;
+            }
+
+            else if(arr[mid] < target){
+                right = mid - 1;
+            }
+            else{
+                left = mid + 1;
+            }
+        }
         return -1;
     }
     

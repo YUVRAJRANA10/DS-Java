@@ -35,8 +35,15 @@ public class File3_Q6_WordFrequency {
      */
     public static int countWord(String sentence, String word) {
         // YOUR CODE HERE
-        
-        return 0;
+        String[] arr = sentence.split("\\s+");
+        int count = 0;
+        for (int i = 0; i < arr.length; i++) {
+            if(arr[i].equals(word)){
+                count++;
+            }
+        }
+
+        return count;
     }
     
     // ==================== TEST CASES ====================

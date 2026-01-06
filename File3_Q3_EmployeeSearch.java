@@ -53,7 +53,11 @@ public class File3_Q3_EmployeeSearch {
      */
     public static int searchByName(Employee[] employees, String name) {
         // YOUR CODE HERE
-        
+        for (int i = 0; i < employees.length; i++) {
+            if(employees[i].name == name){
+                return i;
+            }
+        }
         return -1;
     }
     
@@ -67,8 +71,13 @@ public class File3_Q3_EmployeeSearch {
      */
     public static int searchById(Employee[] employees, int id) {
         // YOUR CODE HERE
-        
+             for (int i = 0; i < employees.length; i++) {
+            if(employees[i].id == id){
+                return i;
+            }
+        }
         return -1;
+    
     }
     
     // ==================== TEST CASES ====================

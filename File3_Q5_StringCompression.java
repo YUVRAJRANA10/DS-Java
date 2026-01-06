@@ -1,3 +1,6 @@
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 /**
  * ============================================================
  * QUESTION: String Compression
@@ -35,8 +38,23 @@ public class File3_Q5_StringCompression {
      */
     public static String compress(String s) {
         // YOUR CODE HERE
+        StringBuilder sb = new StringBuilder();
         
-        return s;
+       LinkedHashMap <Character,Integer> map = new LinkedHashMap<>();
+     for (int i = 0; i < s.length(); i++) {
+        char c = s.charAt(i);
+        map.merge(c, 1, Integer::sum);
+
+     }
+
+     for(char c: map.keySet()){
+        
+        sb.append(c);
+        if(map.get(c) != 1){
+        sb.append(map.get(c)); }
+     }
+
+        return sb.toString();
     }
     
     // ==================== TEST CASES ====================
