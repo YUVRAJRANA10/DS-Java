@@ -40,7 +40,26 @@ public class File7_Q8_SplitCircularList {
     public static ListNode[] splitCircular(ListNode head) {
         // YOUR CODE HERE
         
-        return new ListNode[2];
+  
+    if (head == null) return new ListNode[]{null, null};
+    
+    ListNode slow = head;
+    ListNode fast = head;
+    
+    // For even length: stop when fast.next.next == head
+    while (fast.next != head && fast.next.next != head) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+    fast = fast.next;  // Move to last node
+    
+    // Now slow is at end of first half, fast is at last node
+    ListNode head2 = slow.next;  // Second half starts here
+    slow.next = head;            // Make first half circular
+    fast.next = head2;           // Make second half circular
+    
+    return new ListNode[]{head, head2};
+
     }
     
     // Helper: Create circular list

@@ -28,16 +28,66 @@ public class File5_Q6_SmallestWindowSubstring {
     
     /**
      * TODO: Implement this method
-     * Find minimum window substring containing all chars of t
+     * Find minimum window substring     all chars of t
      * 
      * @param s - source string
      * @param t - target string (chars to find)
      * @return - minimum window substring, empty if none exists
      */
     public static String minWindow(String s, String t) {
-        // YOUR CODE HERE
+        // Edge case
+        if (s.length() < t.length()) {
+            return "";
+        }
         
-        return "";
+        // Step 1: Build frequency map for target string t
+        Map<Character, Integer> required = new HashMap<>();
+        for (char c : t.toCharArray()) {
+            required.put(c, required.getOrDefault(c, 0) + 1);
+        }
+        
+        // Step 2: Initialize variables
+        Map<Character, Integer> window = new HashMap<>();  // Current window frequency
+        int have = 0;                    // Unique chars we have in required count
+        int need = required.size();      // Unique chars we need
+        int left = 0;                    // Left pointer
+        int minLen = Integer.MAX_VALUE;  // Minimum window length found
+        int minStart = 0;                // Start index of minimum window
+        
+        // Step 3: Expand window with right pointer
+        for (int right = 0; right < s.length(); right++) {
+            // Add current char to window
+            char c = s.charAt(right);
+            window.put(c, window.getOrDefault(c, 0) + 1);
+            
+            // Check if this char satisfies the required count
+            if (required.containsKey(c) && window.get(c).equals(required.get(c))) {
+                have++;
+            }
+            
+            // Step 4: Contract window from left while it's valid
+            while (have == need) {
+                // Update result if this window is smaller
+                int windowLen = right - left + 1;
+                if (windowLen < minLen) {
+                    minLen = windowLen;
+                    minStart = left;
+                }
+                
+                // Remove left char from window and shrink
+                char leftChar = s.charAt(left);
+                window.put(leftChar, window.get(leftChar) - 1);
+                
+                // Check if removing this char breaks the requirement
+                if (required.containsKey(leftChar) && window.get(leftChar) < required.get(leftChar)) {
+                    have--;
+                }
+                left++;  // Shrink window
+            }
+        }
+        
+        // Step 5: Return result
+        return minLen == Integer.MAX_VALUE ? "" : s.substring(minStart, minStart + minLen);
     }
     
     // ==================== TEST CASES ====================

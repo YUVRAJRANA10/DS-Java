@@ -46,6 +46,9 @@ public class File3_Q7_WarehouseInventory {
         
         public Inventory() {
             // Initialize
+               head = null;
+               tail = null;
+               size = 0;
         }
         
         /**
@@ -55,6 +58,21 @@ public class File3_Q7_WarehouseInventory {
          */
         public void addItem(String name, int quantity) {
             // YOUR CODE HERE
+            if(head == null){
+            ItemNode newnode = new ItemNode(name,quantity);
+            newnode.next =head;
+            head = newnode;
+            tail = newnode;
+            
+            }
+            else{
+            ItemNode newnode = new ItemNode(name,quantity);
+            tail.next = newnode;
+            tail = newnode;
+            
+            
+
+            }
         }
         
         /**
@@ -64,6 +82,16 @@ public class File3_Q7_WarehouseInventory {
          */
         public boolean removeItem(String name) {
             // YOUR CODE HERE
+            if (head == null) {
+                return false;
+            }
+           
+            ItemNode temp =  head;
+            while(temp.next!= null){
+                if(temp.next.name == name){
+                   temp.next = temp;
+                }
+            }
             return false;
         }
         
@@ -73,7 +101,20 @@ public class File3_Q7_WarehouseInventory {
          * @return - ItemNode if found, null otherwise
          */
         public ItemNode findItem(String name) {
-            // YOUR CODE HERE
+                    if (head == null) {
+                return null;
+            }
+           
+            ItemNode temp =  head;
+            while(temp!= null){
+                if(temp.name == name){
+                    return temp;
+                }
+                temp = temp.next;
+            }
+          
+              
+
             return null;
         }
         
@@ -81,7 +122,16 @@ public class File3_Q7_WarehouseInventory {
          * Get inventory size
          */
         public int getSize() {
-            return size;
+                        if (head == null) {
+                return 0;
+            }
+           int count = 0;
+            ItemNode temp =  head;
+            while(temp!= null){
+                temp = temp.next;
+                count++;
+            }
+          return count;
         }
         
         /**

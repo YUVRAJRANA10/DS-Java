@@ -38,9 +38,34 @@ public class File4_Q9_BaseballGame {
      * @return - total score
      */
     public static int calPoints(String[] ops) {
-        // YOUR CODE HERE
-        
-        return 0;
+
+    Stack<Integer> st = new Stack<>();
+    
+    for (String str : ops) {
+        if (str.equals("C")) {
+            st.pop();
+        }
+        else if (str.equals("D")) {
+            st.push(st.peek() * 2);
+        }
+        else if (str.equals("+")) {
+            int top = st.pop();
+            int newScore = top + st.peek();
+            st.push(top);      // Put back
+            st.push(newScore); // Add sum
+        }
+        else {
+            // It's a number (handles negatives too!)
+            st.push(Integer.parseInt(str));
+        }
+    }
+    
+    int total = 0;
+    while (!st.isEmpty()) {
+        total += st.pop();
+    }
+    return total;
+
     }
     
     // ==================== TEST CASES ====================

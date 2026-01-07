@@ -34,9 +34,17 @@ public class File5_Q4_MaxProfit {
      * @return - maximum profit (0 if no profit possible)
      */
     public static int maxProfit(int[] prices) {
-        // YOUR CODE HERE
-        
-        return 0;
+
+    int minPrice = Integer.MAX_VALUE;
+    int maxProfit = 0;
+    
+    for (int price : prices) {
+        minPrice = Math.min(minPrice, price);      // Best buy so far
+        maxProfit = Math.max(maxProfit, price - minPrice);  // Profit if sell today
+    }
+    
+    return maxProfit;
+
     }
     
     // ==================== TEST CASES ====================

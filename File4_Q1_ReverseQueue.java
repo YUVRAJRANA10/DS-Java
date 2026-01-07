@@ -36,7 +36,17 @@ public class File4_Q1_ReverseQueue {
      */
     public static Queue<Integer> reverseQueue(Queue<Integer> queue) {
         // YOUR CODE HERE
-        
+        Stack<Integer> st = new Stack<>();
+        while (!queue.isEmpty()) {
+            int a = queue.remove();
+            st.push(a);
+        }
+
+        while (!st.isEmpty()) {
+            int a  = st.pop();
+            queue.add(a);
+        }
+
         return queue;
     }
     

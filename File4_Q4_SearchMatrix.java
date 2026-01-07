@@ -37,7 +37,13 @@ public class File4_Q4_SearchMatrix {
      */
     public static boolean searchMatrix(int[][] matrix, int target) {
         // YOUR CODE HERE
-        
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if(matrix[i][j] == target){
+                    return true;
+                }
+            }
+        }
         return false;
     }
     
@@ -52,7 +58,13 @@ public class File4_Q4_SearchMatrix {
      */
     public static int[] searchMatrixPosition(int[][] matrix, int target) {
         // YOUR CODE HERE
-        
+         for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[i].length; j++) {
+                if(matrix[i][j] == target){
+                    return new int[]{i,j};
+                }
+            }
+        }
         return new int[]{-1, -1};
     }
     

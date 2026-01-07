@@ -40,8 +40,28 @@ public class File5_Q1_NthFromEnd {
      */
     public static int findNthFromEnd(ListNode head, int n) {
         // YOUR CODE HERE
+        ListNode temp = head;
+        int count = 1;
+        while (temp.next != null) {
+            temp = temp.next;
+            count++;
+
+        }
+
+        if (n > count) {
+            return temp.val;
+        }
         
-        return -1;
+        count = count  -n;
+      ListNode temp2 = head;
+        while (count != 0) {
+            temp2 = temp2.next;
+            count--;
+        }
+       
+    
+       
+        return temp2.val;
     }
     
     // Helper: Create list
