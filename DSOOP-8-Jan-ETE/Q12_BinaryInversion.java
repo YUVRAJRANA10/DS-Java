@@ -33,8 +33,20 @@ public class Q12_BinaryInversion {
         // Step 3: Convert back to decimal
         
         // YOUR CODE HERE
-        
-        return 0;
+
+        String num = Integer.toBinaryString(n);
+        String s = "";
+        for (int index = 0; index < num.length(); index++) {
+            if(num.charAt(index) == '0'){
+                s+='1';
+            }
+            else{
+                s+='0';
+            }
+        }
+          
+
+        return Integer.parseInt(s,2);
     }
     
     /**
@@ -42,6 +54,7 @@ public class Q12_BinaryInversion {
      */
     public static int invertBinaryBitwise(int n) {
         // YOUR CODE HERE
+        
         
         return 0;
     }

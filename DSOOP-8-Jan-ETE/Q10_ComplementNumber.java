@@ -27,11 +27,22 @@ public class Q10_ComplementNumber {
      * @return complement of the number
      */
     public static int findComplement(int n) {
-        if (n == 0) return 1;
-        
-        // YOUR CODE HERE
-        
-        return 0;
+
+    StringBuilder sb = new StringBuilder(); 
+    String binary = Integer.toBinaryString(n);
+    
+    for (int i = 0; i < binary.length(); i++) {
+        if(binary.charAt(i) == '0'){
+          sb.append('1');
+        }
+        else{
+            sb.append('0');
+        }
+    }
+
+    return Integer.parseInt(sb.toString(),2);
+
+
     }
     
     public static void main(String[] args) {

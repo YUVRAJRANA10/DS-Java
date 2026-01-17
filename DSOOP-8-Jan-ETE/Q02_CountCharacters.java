@@ -1,4 +1,4 @@
-/**
+ /**
  * ============================================================
  * Q2: COUNT CHARACTERS IN A STRING
  * ============================================================
@@ -33,6 +33,29 @@ public class Q02_CountCharacters {
         int special = 0;
         
         // YOUR CODE HERE
+
+
+        for(char c : str.toCharArray()){
+          if(Character.isAlphabetic(c)){
+            if(c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u' || c == 'A' || c == 'E' || c == 'I' || c == 'O' || c == 'U'){
+                vowels+=1;
+            }
+            else{
+                consonants += 1;
+
+            }
+            continue;
+        }
+            if (Character.isDigit(c)) {
+                digits+=1;
+            }
+            else{
+                special += 1;
+            }
+        
+
+
+        }
         
         return new int[]{vowels, consonants, digits, special};
     }

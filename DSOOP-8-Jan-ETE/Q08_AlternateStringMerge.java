@@ -28,9 +28,26 @@ public class Q08_AlternateStringMerge {
      * @return merged string with alternate characters
      */
     public static String mergeAlternate(String str1, String str2) {
-        // YOUR CODE HERE
+        StringBuilder result = new StringBuilder();
+        int i = 0, j = 0;
         
-        return "";
+        // Alternate characters from both strings
+        while (i < str1.length() && j < str2.length()) {
+            result.append(str1.charAt(i++));
+            result.append(str2.charAt(j++));
+        }
+        
+        // Append remaining characters from str1
+        while (i < str1.length()) {
+            result.append(str1.charAt(i++));
+        }
+        
+        // Append remaining characters from str2
+        while (j < str2.length()) {
+            result.append(str2.charAt(j++));
+        }
+        
+        return result.toString();
     }
     
     public static void main(String[] args) {

@@ -27,8 +27,10 @@ public class Q13_CheckDecimal {
      */
     public static boolean hasDecimalPart(double n) {
         // YOUR CODE HERE
-        
-        return false;
+        if(n == Math.floor(n)){
+            return false;
+        }
+        return true;
     }
     
     /**

@@ -28,7 +28,15 @@ public class Q01_UppercaseLowercaseCheck {
     public static String checkCase(char ch) {
         // YOUR CODE HERE
         
-        return "";
+     if(Character.isUpperCase(ch)){
+        return "Uppercase";
+     }
+     else if(Character.isLowerCase(ch)){
+        return "Lowercase";
+     }
+
+
+        return "Not a Letter";
     }
     
     public static void main(String[] args) {

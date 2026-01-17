@@ -27,8 +27,13 @@ public class Q04_StringPalindrome {
      */
     public static boolean isPalindrome(String str) {
         // YOUR CODE HERE
+        StringBuilder sb = new StringBuilder();
+        for (int i = str.length() - 1; i >= 0; i--) {
+            sb.append(str.charAt(i));
+        }
+          
         
-        return false;
+        return str.equals(sb.toString());
     }
     
     /**
@@ -38,8 +43,28 @@ public class Q04_StringPalindrome {
      */
     public static boolean isPalindromeIgnoreCase(String str) {
         // YOUR CODE HERE
+          StringBuilder sb = new StringBuilder();
+          StringBuilder sb2 = new StringBuilder();
+          
+        for (int i = 0; i < str.length(); i++) {
+            if(str.charAt(i) == ' '){
+               continue;
+            }
+            sb.append(str.charAt(i));
+        }
+
+        for (int i = str.length()  - 1; i >= 0; i--) {
+            if(str.charAt(i) == ' '){
+               continue;
+            }
+            sb2.append(str.charAt(i));
+        }
+
+
+          
         
-        return false;
+        return sb.toString().trim().equalsIgnoreCase(sb2.toString().trim());
+        
     }
     
     public static void main(String[] args) {

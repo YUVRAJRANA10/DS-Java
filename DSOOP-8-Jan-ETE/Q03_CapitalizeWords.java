@@ -28,8 +28,17 @@ public class Q03_CapitalizeWords {
      */
     public static String capitalizeWords(String sentence) {
         // YOUR CODE HERE
-        
-        return "";
+        StringBuilder sb = new StringBuilder();
+        String[] arr = sentence.split("\\s+");
+        for(String i : arr){
+            if(i.length() > 0) {
+                sb.append(Character.toUpperCase(i.charAt(0)));
+                sb.append(i.substring(1));
+                sb.append(" ");
+            }
+        }
+       
+        return sb.toString().trim();
     }
     
     public static void main(String[] args) {

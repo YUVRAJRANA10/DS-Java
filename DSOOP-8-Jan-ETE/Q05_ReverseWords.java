@@ -28,8 +28,15 @@ public class Q05_ReverseWords {
      */
     public static String reverseWordOrder(String sentence) {
         // YOUR CODE HERE
+
+        String[] arr = sentence.split(" ");
+        StringBuilder sb = new StringBuilder();
+        for(int i = arr.length - 1; i >=0; i--){
+            sb.append(arr[i]);
+            sb.append(" ");
+        }
         
-        return "";
+        return sb.toString().trim();
     }
     
     /**
@@ -38,8 +45,18 @@ public class Q05_ReverseWords {
      */
     public static String reverseEachWord(String sentence) {
         // YOUR CODE HERE
+
+          String[] arr = sentence.split(" ");
+        StringBuilder sb = new StringBuilder();
+        for(String s: arr){
+            for(int j = s.length() - 1; j>=0 ; j--){
+                  sb.append(s.charAt(j));
+            }
+            sb.append(" ");
+        }
         
-        return "";
+        return sb.toString().trim();
+        
     }
     
     public static void main(String[] args) {

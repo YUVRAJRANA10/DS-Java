@@ -27,8 +27,14 @@ public class Q11_CountSetBits {
      */
     public static int countSetBits(int n) {
         // YOUR CODE HERE
-        
-        return 0;
+        String num = Integer.toBinaryString(n);
+          int count = 0;
+        for (int index = 0; index < num.length(); index++) {
+            if(num.charAt(index) != '0'){
+                count++;
+            }
+        }
+        return count;
     }
     
     /**
